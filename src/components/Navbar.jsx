@@ -36,7 +36,7 @@ const Navbar = () => {
   const [openProduct, setOpenProduct] = useState(false);
   const [openMaterial, setOpenMaterial] = useState(false);
   return (
-    <nav className="bg-white shadow-lg">
+    <nav className="bg-white shadow-lg fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between h-16 items-center">
           <div className="flex">
@@ -68,9 +68,14 @@ const Navbar = () => {
               <Link to="/news" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-blue-600">
                 Khuyến mãi
               </Link>
-              <Link to="/" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-blue-600">
+              <a
+                href="https://drive.google.com/file/d/1kyxB_qIB7oW0s39kZvc3FnuCPjVSQu6n/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-blue-600"
+              >
                 Bảng giá
-              </Link>
+              </a>
             </div>
           </div>
           <div className="flex items-center space-x-2 ml-4">
@@ -131,7 +136,15 @@ const Navbar = () => {
           </div>
           <Link to="/inside" onClick={() => setOpen(false)} className="py-2 font-semibold">Liên hệ</Link>
           <Link to="/news" onClick={() => setOpen(false)} className="py-2 font-semibold">Khuyến mãi</Link>
-          <Link to="/news" onClick={() => setOpen(false)} className="py-2 font-semibold">Bảng giá</Link>
+          <a
+            href="https://drive.google.com/file/d/1kyxB_qIB7oW0s39kZvc3FnuCPjVSQu6n/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="py-2 font-semibold"
+            onClick={() => setOpen(false)}
+          >
+            Bảng giá
+          </a>
         </div>
       </Drawer>
     </nav>

@@ -54,7 +54,7 @@ const Inside = () => {
         animate={{ opacity: 1, y: 0 }}
         className="bg-white rounded-lg shadow-lg p-8"
       >
-        <h1 className="text-3xl font-bold text-center mb-8">Feedback & Suggestions</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">Chăm sóc khách hàng</h1>
         
         {submitSuccess && (
           <motion.div
@@ -62,7 +62,7 @@ const Inside = () => {
             animate={{ opacity: 1, y: 0 }}
             className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6"
           >
-            Thank you for your feedback! We'll get back to you soon.
+            Cảm ơn bạn đã để lại thông tin. chúng tôi sẽ liên hệ lại bạn sớm nhất có thể!!!
           </motion.div>
         )}
 
@@ -70,7 +70,7 @@ const Inside = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Name
+                Họ và Tên
               </label>
               <input
                 type="text"
@@ -79,7 +79,7 @@ const Inside = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your name"
+                placeholder="Điền tên của bạn..."
               />
             </div>
 
@@ -94,7 +94,7 @@ const Inside = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="your.email@mcgroup.com"
+                placeholder="email_của_bạn@gmail.com"
               />
             </div>
           </div>
@@ -102,27 +102,22 @@ const Inside = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Department
+                Số điện thoại
               </label>
-              <select
-                name="department"
-                value={formData.department}
+              <input
+                type="sdt"
+                name="sdt"
+                value={formData.sdt}
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">Select Department</option>
-                <option value="IT">IT</option>
-                <option value="HR">HR</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Sales">Sales</option>
-                <option value="Finance">Finance</option>
-              </select>
+                placeholder="Nhập số điện thoại của bạn!( bắt buộc )"
+              />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Category
+                Bạn muốn phản hồi điều gì?
               </label>
               <select
                 name="category"
@@ -131,17 +126,17 @@ const Inside = () => {
                 required
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="">Select Category</option>
-                <option value="suggestion">Suggestion</option>
-                <option value="complaint">Complaint</option>
-                <option value="praise">Praise</option>
-                <option value="question">Question</option>
+                <option value="">Chọn ý kiến của bạn</option>
+                <option value="suggestion">Nhận thông tin khuyến mãi</option>
+                <option value="complaint">Nhận báo giá</option>
+                <option value="praise">Nhận tư vấn về sản phẩm</option>
+                <option value="question">Phản ánh vấn đề</option>
               </select>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Priority
               </label>
@@ -160,8 +155,8 @@ const Inside = () => {
                   </label>
                 ))}
               </div>
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               {formData.category && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -176,12 +171,12 @@ const Inside = () => {
                   />
                 </div>
               )}
-            </div>
+            </div> */}
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Message
+              Nội dung lời nhắn
             </label>
             <textarea
               name="message"
@@ -190,7 +185,7 @@ const Inside = () => {
               required
               rows="6"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Please describe your feedback in detail..."
+              placeholder="Nhập lời nhắn của bạn..."
             />
           </div>
 
@@ -202,7 +197,7 @@ const Inside = () => {
                 isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
-              {isSubmitting ? 'Submitting...' : 'Submit Feedback'}
+              {isSubmitting ? 'Đang gửi...' : 'Gửi thông tin'}
             </button>
           </div>
         </form>
