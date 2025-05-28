@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import AnimatedFeatureCards from '../components/AnimatedFeatureCards';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -66,29 +67,7 @@ const Home = () => {
       </div>
       {/* Features Section */}
       <div className="max-w-7xl mx-auto py-16 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-lg shadow-lg"
-          >
-            <h3 className="text-xl font-bold mb-4">Innovation</h3>
-            <p className="text-gray-600">Leading the way with cutting-edge solutions</p>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-lg shadow-lg"
-          >
-            <h3 className="text-xl font-bold mb-4">Excellence</h3>
-            <p className="text-gray-600">Delivering quality in everything we do</p>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-lg shadow-lg"
-          >
-            <h3 className="text-xl font-bold mb-4">Teamwork</h3>
-            <p className="text-gray-600">Collaborating to achieve great results</p>
-          </motion.div>
-        </div>
+        <AnimatedFeatureCards />
       </div>
 
       {/* <div className="bg-gradient-to-b from-blue-500 via-blue-300 to-blue-100 rounded-xl shadow-lg">

@@ -14,7 +14,7 @@ const productMenu = (
       <Menu.Item>Sản phẩm 1</Menu.Item>
       <Menu.Item>Sản phẩm 2</Menu.Item>
     </Menu.SubMenu>
-    <Menu.Item>Sản phẩm 1</Menu.Item>
+    <Menu.Item>Tất cả sản phẩm</Menu.Item>
   </Menu>
 );
 
@@ -68,6 +68,9 @@ const Navbar = () => {
               <Link to="/news" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-blue-600">
                 Khuyến mãi
               </Link>
+              <Link to="/" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-blue-600">
+                Bảng giá
+              </Link>
             </div>
           </div>
           <div className="flex items-center space-x-2 ml-4">
@@ -106,20 +109,29 @@ const Navbar = () => {
           <div>
             <div className="py-2 font-semibold">Sản phẩm</div>
             <div className="pl-4 flex flex-col space-y-1">
-              <Link to="/san-pham/dien-thoai" onClick={() => setOpen(false)}>Điện thoại</Link>
-              <Link to="/san-pham/laptop" onClick={() => setOpen(false)}>Laptop</Link>
-              <Link to="/san-pham/phu-kien" onClick={() => setOpen(false)}>Phụ kiện</Link>
+              <div className="font-medium">Thương hiệu 1</div>
+              <Link to="/san-pham/thuong-hieu-1/san-pham-1" onClick={() => setOpen(false)} className="pl-4">Sản phẩm 1</Link>
+              <Link to="/san-pham/thuong-hieu-1/san-pham-2" onClick={() => setOpen(false)} className="pl-4">Sản phẩm 2</Link>
+              <div className="font-medium">Thương hiệu 2</div>
+              <Link to="/san-pham/thuong-hieu-2/san-pham-1" onClick={() => setOpen(false)} className="pl-4">Sản phẩm 1</Link>
+              <Link to="/san-pham/thuong-hieu-2/san-pham-2" onClick={() => setOpen(false)} className="pl-4">Sản phẩm 2</Link>
+              <Link to="/san-pham/san-pham-1" onClick={() => setOpen(false)}>Tất cả sản phẩm</Link>
             </div>
           </div>
           <div>
             <div className="py-2 font-semibold">Vật tư</div>
             <div className="pl-4 flex flex-col space-y-1">
-              <Link to="/vat-tu/dien" onClick={() => setOpen(false)}>Vật tư điện</Link>
-              <Link to="/vat-tu/nuoc" onClick={() => setOpen(false)}>Vật tư nước</Link>
+              <div className="font-medium">Thương hiệu 1</div>
+              <Link to="/vat-tu/thuong-hieu-1/san-pham-1" onClick={() => setOpen(false)} className="pl-4">Sản phẩm 1</Link>
+              <Link to="/vat-tu/thuong-hieu-1/san-pham-2" onClick={() => setOpen(false)} className="pl-4">Sản phẩm 2</Link>
+              <div className="font-medium">Thương hiệu 2</div>
+              <Link to="/vat-tu/thuong-hieu-2/san-pham-1" onClick={() => setOpen(false)} className="pl-4">Sản phẩm 1</Link>
+              <Link to="/vat-tu/thuong-hieu-2/san-pham-2" onClick={() => setOpen(false)} className="pl-4">Sản phẩm 2</Link>
             </div>
           </div>
           <Link to="/inside" onClick={() => setOpen(false)} className="py-2 font-semibold">Liên hệ</Link>
           <Link to="/news" onClick={() => setOpen(false)} className="py-2 font-semibold">Khuyến mãi</Link>
+          <Link to="/news" onClick={() => setOpen(false)} className="py-2 font-semibold">Bảng giá</Link>
         </div>
       </Drawer>
     </nav>
