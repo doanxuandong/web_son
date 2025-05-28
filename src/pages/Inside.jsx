@@ -48,13 +48,13 @@ const Inside = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4">
+    <div className="max-w-4xl mx-auto py-8 px-4 mt-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="bg-white rounded-lg shadow-lg p-8"
       >
-        <h1 className="text-3xl font-bold text-center mb-8">Chăm sóc khách hàng</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">Liên hệ </h1>
         
         {submitSuccess && (
           <motion.div

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import AnimatedFeatureCards from '../components/AnimatedFeatureCards';
+import BackToTop from '../components/BackToTop';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -30,7 +31,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="relative bg-gradient-to-b from-blue-100 via-blue-50 to-white min-h-screen">
+    <div className="relative bg-gradient-to-b from-blue-100 via-blue-50 to-white min-h-screen mt-20">
       {/* Banner Section */}
       <div className="relative h-[600px] overflow-hidden">
         {banners.map((banner, index) => (
@@ -69,32 +70,38 @@ const Home = () => {
       <div className="max-w-7xl mx-auto py-16 px-4">
         <AnimatedFeatureCards />
       </div>
-      {/* Promotion Section */}
-      <div className="w-full bg-gradient-to-r from-blue-600 to-blue-400 py-12 px-4 mt-4 rounded-2xl shadow-lg flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
-        <div className="flex-1 text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Chương trình khuyến mãi đặc biệt!</h2>
-          <p className="text-lg mb-2">Thay section này bằng một ảnh có kích thước lớn hơn</p>
+      {/* Section SẢN PHẨM của chúng tôi kiểu Nippon Paint */}
+      <div className="w-full bg-[#f5d6b2] py-16 px-4 mt-8 rounded-2xl shadow-lg flex flex-col items-center relative overflow-hidden mb-12">
+        {/* Hiệu ứng brush phía trên, dùng ảnh mẫu nếu chưa có */}
+        {/* <img src="https://i.imgur.com/6IUbEME.png" alt="brush" className="absolute top-0 left-0 w-full h-12 object-cover pointer-events-none" /> */}
+        <h2 className="text-4xl font-bold text-center mb-2 text-black tracking-wide">SẢN PHẨM</h2>
+        <div className="text-lg text-black mb-10 text-center">của chúng tôi</div>
+        <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8 z-10">
+          {/* Card 1 */}
+          <div className="flex flex-col items-center relative w-72 group">
+            <div className="w-72 h-48 rounded-lg overflow-hidden shadow bg-white relative">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Nhà ở" className="w-full h-full object-cover" />
+              <img src="/anh_lon_son.jpg" alt="Sơn trang trí" className="absolute bottom-0 right-2 w-28 h-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-125" />
+            </div>
+            <div className="font-semibold text-black text-lg mt-2">Sơn trang trí</div>
+          </div>
+          {/* Card 2 */}
+          <div className="flex flex-col items-center relative w-72 group">
+            <div className="w-72 h-48 rounded-lg overflow-hidden shadow bg-white relative">
+              <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Nội thất" className="w-full h-full object-cover" />
+              <img src="/anh_lon_son.jpg" alt="Sơn dân dụng" className="absolute bottom-0 right-2 w-28 h-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-125" />
+            </div>
+            <div className="font-semibold text-black text-lg mt-2">Sơn dân dụng</div>
+          </div>
+          {/* Card 3 */}
+          <div className="flex flex-col items-center relative w-72 group">
+            <div className="w-72 h-48 rounded-lg overflow-hidden shadow bg-white relative">
+              <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Công nghiệp" className="w-full h-full object-cover" />
+              <img src="/anh_lon_son.jpg" alt="Sơn và chất phủ công nghiệp" className="absolute bottom-0 right-2 w-28 h-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-125" />
+            </div>
+            <div className="font-semibold text-black text-lg mt-2">Sơn và chất phủ công nghiệp</div>
+          </div>
         </div>
-        <form className="flex-1 flex flex-col md:flex-row items-center gap-4 bg-white bg-opacity-90 p-6 rounded-xl shadow" onSubmit={e => {e.preventDefault(); alert('Cảm ơn bạn đã đăng ký nhận ưu đãi!');}}>
-          <input
-            type="text"
-            placeholder="Nhập tên của bạn"
-            className="px-4 py-2 rounded-md border w-full md:w-auto"
-            required
-          />
-          <input
-            type="tel"
-            placeholder="Số điện thoại"
-            className="px-4 py-2 rounded-md border w-full md:w-auto"
-            required
-          />
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition"
-          >
-            Nhận ưu đãi
-          </button>
-        </form>
       </div>
 
       {/* <div className="bg-gradient-to-b from-blue-500 via-blue-300 to-blue-100 rounded-xl shadow-lg">
@@ -103,6 +110,7 @@ const Home = () => {
           <CircularGallery bend={3} textColor="#224099" borderRadius={0.05} />
         </div>
       </div> */}
+      <BackToTop />
     </div>
   );
 };
