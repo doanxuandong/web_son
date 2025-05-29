@@ -89,7 +89,7 @@ const Navbar = () => {
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
               <Link to="/" className="flex items-center space-x-2">
-                <img src="/logo.png" alt="MC Group Logo" className="h-16 w-16 object-contain" />
+                <img src="/back_to_top.JPG" alt="MC Group Logo" className="h-16 w-16 object-contain" />
                 {/* <span className="text-2xl font-bold text-blue-600">Dong Doan</span> */}
               </Link>
             </div>

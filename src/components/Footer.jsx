@@ -16,7 +16,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         {/* Left: Logo + Info */}
         <div className="flex-1 flex flex-col items-start">
-          <img src="/logo.png" alt="Logo" className="h-20 mb-4" />
+          <img src="/back_to_top.JPG" alt="Logo" className="h-20 mb-4" />
           <div className="text-white text-base text-left w-full">
             <div className="font-bold mb-2">doandoancodeweb</div>
             <div className="flex items-start gap-2 mb-1">

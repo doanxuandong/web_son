@@ -4,6 +4,7 @@ import { Input, Select, Button, Tabs } from 'antd';
 import { LeftOutlined, RightOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useNavigate } from 'react-router-dom';
 
 const banners = [
   'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80',
@@ -70,6 +71,7 @@ const ProductPage = () => {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('');
   const [tab, setTab] = useState('son-trang-tri');
+  const navigate = useNavigate();
 
   // Lọc sản phẩm mới
   const newProducts = allProducts.filter(p => p.isNew);
@@ -193,7 +195,11 @@ const ProductPage = () => {
             children: (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                 {tabProducts(cat.key).map((item, idx) => (
-                  <div key={idx} className="bg-white rounded-xl shadow p-4 flex flex-col items-center">
+                  <div
+                    key={idx}
+                    className="bg-white rounded-xl shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition"
+                    onClick={() => navigate(`/san-pham/${cat.key}/${item.name.toLowerCase().replace(/ /g, '-')}`)}
+                  >
                     <img src={item.image} alt={item.name} className="w-24 h-24 object-cover mb-2 rounded" />
                     <div className="font-semibold text-center">{item.name}</div>
                   </div>

@@ -7,6 +7,7 @@ import Inside from './pages/Inside';
 import News from './pages/News';
 import Footer from './components/Footer';
 import ProductPage from './pages/ProductPage';
+import ProductCategoryPage from './pages/ProductCategoryPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/inside" element={<Inside />} />
           <Route path="/news" element={<News />} />
           <Route path="/san-pham" element={<ProductPage />} />
+          <Route path="/san-pham/:category/:subcategory" element={<ProductCategoryPage />} />
         </Routes>
         <Footer/>
       </div>
