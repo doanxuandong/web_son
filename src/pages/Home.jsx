@@ -81,7 +81,7 @@ const Home = () => {
           <div className="flex flex-col items-center relative w-72 group">
             <div className="w-72 h-48 rounded-lg overflow-hidden shadow bg-white relative">
               <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Nhà ở" className="w-full h-full object-cover" />
-              <img src="/anh_lon_son.jpg" alt="Sơn trang trí" className="absolute bottom-0 right-2 w-28 h-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-125" />
+              <img src="/anh_lon_son.png" alt="Sơn trang trí" className="absolute bottom-0 right-2 w-28 h-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-125" />
             </div>
             <div className="font-semibold text-black text-lg mt-2">Sơn trang trí</div>
           </div>
@@ -89,7 +89,7 @@ const Home = () => {
           <div className="flex flex-col items-center relative w-72 group">
             <div className="w-72 h-48 rounded-lg overflow-hidden shadow bg-white relative">
               <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Nội thất" className="w-full h-full object-cover" />
-              <img src="/anh_lon_son.jpg" alt="Sơn dân dụng" className="absolute bottom-0 right-2 w-28 h-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-125" />
+              <img src="/anh_lon_son.png" alt="Sơn dân dụng" className="absolute bottom-0 right-2 w-28 h-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-125" />
             </div>
             <div className="font-semibold text-black text-lg mt-2">Sơn dân dụng</div>
           </div>
@@ -97,9 +97,17 @@ const Home = () => {
           <div className="flex flex-col items-center relative w-72 group">
             <div className="w-72 h-48 rounded-lg overflow-hidden shadow bg-white relative">
               <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Công nghiệp" className="w-full h-full object-cover" />
-              <img src="/anh_lon_son.jpg" alt="Sơn và chất phủ công nghiệp" className="absolute bottom-0 right-2 w-28 h-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-125" />
+              <img src="/anh_lon_son.png" alt="Sơn và chất phủ công nghiệp" className="absolute bottom-0 right-2 w-28 h-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-125" />
             </div>
             <div className="font-semibold text-black text-lg mt-2">Sơn và chất phủ công nghiệp</div>
+          </div>
+          {/* Card 4 */}
+          <div className="flex flex-col items-center relative w-72 group">
+            <div className="w-72 h-48 rounded-lg overflow-hidden shadow bg-white relative">
+              <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Công nghiệp" className="w-full h-full object-cover" />
+              <img src="/anh_lon_son.png" alt="Sơn và chất phủ công nghiệp" className="absolute bottom-0 right-2 w-28 h-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-125" />
+            </div>
+            <div className="font-semibold text-black text-lg mt-2">Vật tư</div>
           </div>
         </div>
       </div>

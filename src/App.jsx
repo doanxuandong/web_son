@@ -6,6 +6,7 @@ import Ranking from './pages/Ranking';
 import Inside from './pages/Inside';
 import News from './pages/News';
 import Footer from './components/Footer';
+import ProductPage from './pages/ProductPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/inside" element={<Inside />} />
           <Route path="/news" element={<News />} />
+          <Route path="/san-pham" element={<ProductPage />} />
         </Routes>
         <Footer/>
       </div>
