@@ -35,6 +35,29 @@ const brands = [
   },
 ];
 
+// Mapping subcategory slug to Vietnamese title with accents
+const subcategoryTitles = {
+  "son-noi-that": "Sơn Nội Thất",
+  "son-ngoai-that": "Sơn Ngoại Thất",
+  "son-chong-tham": "Sơn Chống Thấm",
+  "son-phu": "Sơn Phủ",
+  "son-hieu-ung-dac-biet": "Sơn Hiệu Ứng Đặc Biệt",
+  "son-lot": "Sơn Lót",
+  "son-chong-moc": "Sơn Chống Mốc",
+  "son-trang-tri-hieu-ung": "Sơn Trang Trí Hiệu Ứng",
+  "son-da-nang": "Sơn Đa Năng",
+  "son-chong-an-mon": "Sơn Chống Ăn Mòn",
+  "son-san-cong-nghiep": "Sơn Sàn Công Nghiệp",
+  "son-chiu-nhiet": "Sơn Chịu Nhiệt",
+  "son-tau-bien": "Sơn Tàu Biển",
+  "son-duong-giao-thong": "Sơn Đường, Giao Thông",
+  "son-cach-dien": "Sơn Cách Điện",
+  "son-ket-cau-thep": "Sơn Kết Cấu Thép",
+  "son-container-bon-be-silo": "Sơn Container, Bồn Bể, Silo",
+  "son-chong-chay": "Sơn Chống Cháy",
+  "chat-phu-dac-biet": "Chất Phủ Đặc Biệt",
+};
+
 const ProductCategoryPage = () => {
   const { category, subcategory } = useParams();
   const [modalOpen, setModalOpen] = useState(false);
@@ -64,9 +87,9 @@ const ProductCategoryPage = () => {
         <span className="mx-2">/</span>
         <Link to="/san-pham" className="hover:underline">Sản phẩm</Link>
         <span className="mx-2">/</span>
-        <span className="text-blue-700 capitalize">{subcategory?.replace(/-/g, ' ')}</span>
+        <span className="text-blue-700 capitalize">{subcategoryTitles[subcategory] || subcategory?.replace(/-/g, ' ')}</span>
       </div>
-      <h1 className="text-3xl font-bold mb-6 capitalize text-center">{subcategory?.replace(/-/g, ' ')}</h1>
+      <h1 className="text-3xl font-bold mb-6 capitalize text-center">{subcategoryTitles[subcategory] || subcategory?.replace(/-/g, ' ')}</h1>
       {/* Thanh lọc sử dụng Ant Design */}
       <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center justify-center mb-8">
         <Select
@@ -102,13 +125,17 @@ const ProductCategoryPage = () => {
             <img src={brand.logo} alt={brand.name} className="h-10 w-auto" />
             <span className="text-xl font-semibold">{brand.name}</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-            {brand.products.map((p, i) => (
-              <div key={i} className="bg-[#fffbea] rounded-lg shadow p-1 flex flex-col w-full cursor-pointer" onClick={() => { setModalProduct({ ...p, brand: brand.logo }); setModalOpen(true); setModalImageIdx(0); }}>
-                <img src={p.image} alt={p.name} className="w-33 h-48 object-cover rounded-md mb-1 border border-gray-200 mx-auto" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+            {brand.products.map((p, idx) => (
+              <div
+                key={idx}
+                className="bg-[#fffbea] rounded-lg shadow p-1 flex flex-col w-full items-center border border-gray-200 cursor-pointer"
+                onClick={() => { setModalProduct(p); setModalOpen(true); setModalImageIdx(0); }}
+              >
+                <img src={p.image} alt={p.name} className="w-33 h-48 object-cover rounded-md mb-1 mx-auto" />
                 <div className="font-bold text-base text-[#d7261e] mb-1 w-full text-center">{p.name}</div>
-                <div className="flex gap-2 w-full justify-center items-center">
-                  <button className="bg-[#d7261e] hover:bg-[#b71c1c] text-white font-bold py-2 px-4 rounded text-sm flex items-center gap-2 transition-colors" onClick={e => { e.stopPropagation(); setModalProduct({ ...p, brand: brand.logo }); setModalOpen(true); setModalImageIdx(0); }}>
+                <div className="flex gap-2 w-full justify-center items-center mb-2">
+                  <button className="bg-[#d7261e] hover:bg-[#b71c1c] text-white font-bold py-2 px-4 rounded text-sm flex items-center gap-2 transition-colors">
                     XEM THÊM
                     <span className="ml-1">→</span>
                   </button>

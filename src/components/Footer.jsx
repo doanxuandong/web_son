@@ -12,7 +12,7 @@ const socialIcons = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#224099] to-[#0a2540] py-12 px-4 rounded-t-3xl">
+    <footer className="bg-gradient-to-r from-[#224099] to-[#0a2540] py-12 px-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         {/* Left: Logo + Info */}
         <div className="flex-1 flex flex-col items-start">

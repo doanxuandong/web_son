@@ -8,6 +8,8 @@ import News from './pages/News';
 import Footer from './components/Footer';
 import ProductPage from './pages/ProductPage';
 import ProductCategoryPage from './pages/ProductCategoryPage';
+import VatTuPage from './pages/VatTuPage';
+import VatTuCategoryPage from './pages/VatTuCategoryPage';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/san-pham" element={<ProductPage />} />
           <Route path="/san-pham/:category/:subcategory" element={<ProductCategoryPage />} />
+          <Route path="/vat-tu" element={<VatTuPage />} />
+          <Route path="/vat-tu/:category/:subcategory" element={<VatTuCategoryPage />} />
         </Routes>
         <Footer/>
       </div>

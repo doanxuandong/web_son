@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-import { Input, Select, Button, Tabs } from 'antd';
+import { Input, Select, Button, Tabs, Modal } from 'antd';
 import { LeftOutlined, RightOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -67,11 +67,28 @@ const allProducts = [
   // ...
 ];
 
+const sampleColors = [
+  { code: 'A001', color: '#e53935' },
+  { code: 'A002', color: '#fbc02d' },
+  { code: 'A003', color: '#43a047' },
+  { code: 'A004', color: '#1e88e5' },
+  { code: 'A005', color: '#8e24aa' },
+  { code: 'A006', color: '#ffb300' },
+  { code: 'A007', color: '#6d4c41' },
+  { code: 'A008', color: '#00bcd4' },
+  { code: 'A009', color: '#c62828' },
+  { code: 'A010', color: '#388e3c' },
+];
+const sampleDesc = 'Sản phẩm sơn chất lượng cao, bền màu, phù hợp cho nhiều bề mặt nội thất và ngoại thất.';
+
 const ProductPage = () => {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('');
   const [tab, setTab] = useState('son-trang-tri');
   const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalProduct, setModalProduct] = useState(null);
+  const [modalImageIdx, setModalImageIdx] = useState(0);
 
   // Lọc sản phẩm mới
   const newProducts = allProducts.filter(p => p.isNew);
@@ -176,13 +193,76 @@ const ProductPage = () => {
         <Slider {...carouselSettings}>
           {newProducts.map((p, idx) => (
             <div key={idx} className="px-2">
-              <div className="bg-white rounded-xl shadow p-4 flex flex-col items-center">
-                <img src={p.image} alt={p.name} className="w-32 h-32 object-cover mb-2 rounded" />
-                <div className="font-semibold text-center">{p.name}</div>
+              <div
+                className="bg-[#fffbea] rounded-lg shadow p-1 flex flex-col w-full items-center border border-gray-200 cursor-pointer"
+                onClick={() => { setModalProduct(p); setModalOpen(true); setModalImageIdx(0); }}
+              >
+                <img src={p.image} alt={p.name} className="w-33 h-48 object-cover rounded-md mb-1 mx-auto" />
+                <div className="font-bold text-base text-[#d7261e] mb-1 w-full text-center">{p.name}</div>
+                <div className="flex gap-2 w-full justify-center items-center mb-2">
+                  <button className="bg-[#d7261e] hover:bg-[#b71c1c] text-white font-bold py-2 px-4 rounded text-sm flex items-center gap-2 transition-colors">
+                    XEM THÊM
+                    <span className="ml-1">→</span>
+                  </button>
+                  <a href="https://zalo.me/0867767125" target="_blank" rel="noopener noreferrer" className="flex items-center transition-colors" style={{height: '36px'}} onClick={e => e.stopPropagation()}>
+                    <img src="/zalo.svg" alt="Zalo" className="h-9 w-9 object-contain" />
+                  </a>
+                </div>
               </div>
             </div>
           ))}
         </Slider>
+        <Modal
+          open={modalOpen}
+          onCancel={() => setModalOpen(false)}
+          footer={null}
+          width={1100}
+          bodyStyle={{ padding: 0, borderRadius: 12, overflow: 'hidden' }}
+          style={{ top: 30 }}
+        >
+          {modalProduct && (
+            <div className="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden">
+              {/* Cột trái: Ảnh lớn + thumbnail ngang */}
+              <div className="flex-1 flex flex-col items-center justify-center bg-gray-50 p-8 min-h-[480px] max-w-[480px]">
+                <div className="w-full flex items-center justify-center mb-4">
+                  <img src={modalProduct.image} alt={modalProduct.name} className="h-[340px] w-auto max-w-full object-contain rounded-lg shadow" />
+                </div>
+                <div className="flex gap-3 items-center w-full justify-center">
+                  {Array(4).fill(0).map((_, idx) => (
+                    <div
+                      key={idx}
+                      className={`border-2 ${modalImageIdx === idx ? 'border-red-500' : 'border-transparent'} rounded cursor-pointer p-1 bg-white transition-all`}
+                      onClick={() => setModalImageIdx(idx)}
+                    >
+                      <img
+                        src={modalProduct.image}
+                        alt={modalProduct.name}
+                        className="w-20 h-20 object-contain rounded"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Cột phải: Thông tin sản phẩm */}
+              <div className="flex-[1.5] p-8 flex flex-col gap-4 justify-center">
+                <div className="text-2xl font-bold mb-2">{modalProduct.name}</div>
+                <div className="text-xl text-[#e53935] font-semibold mb-2">Liên hệ: 0867767125</div>
+                <div className="text-base text-gray-700 mb-2">{sampleDesc}</div>
+                <div>
+                  <div className="font-semibold mb-1">Mã màu:</div>
+                  <div className="flex gap-2 overflow-x-auto pb-2">
+                    {sampleColors.map(c => (
+                      <div key={c.code} className="flex flex-col items-center min-w-[60px]">
+                        <div className="w-8 h-8 rounded-full border-2 border-gray-300 mb-1" style={{ background: c.color }}></div>
+                        <div className="text-xs text-gray-600">{c.code}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </Modal>
       </div>
       {/* Tabs danh mục sản phẩm */}
       <div>
@@ -197,11 +277,11 @@ const ProductPage = () => {
                 {tabProducts(cat.key).map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-white rounded-xl shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition"
-                    onClick={() => navigate(`/san-pham/${cat.key}/${item.name.toLowerCase().replace(/ /g, '-')}`)}
+                    className="bg-white rounded-lg shadow-sm p-2 flex flex-col items-center cursor-pointer hover:shadow-md transition min-h-[180px]"
+                    onClick={() => navigate(`/san-pham/${cat.key}/${item.name.toLowerCase().replace(/ /g, '-').normalize('NFD').replace(/\p{Diacritic}/gu, '')}`)}
                   >
-                    <img src={item.image} alt={item.name} className="w-24 h-24 object-cover mb-2 rounded" />
-                    <div className="font-semibold text-center">{item.name}</div>
+                    <img src={item.image} alt={item.name} className="w-24 h-24 md:w-32 md:h-32 object-cover mb-1 rounded-md" />
+                    <div className="font-bold text-center text-base mt-1">{item.name}</div>
                   </div>
                 ))}
               </div>
