@@ -12,17 +12,17 @@ const Home = () => {
   const banners = [
     {
       image: 'https://images.unsplash.com/photo-1497366216548-37526070297c',
-      title: 'Welcome to MC Group',
+      title: 'Welcome to Pain Market',
       description: 'Sự khác biệt tạo nên đẳng cấp'
     },
     {
       image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2',
-      title: 'Đổi mới & sáng tạo',
-      description: 'Không ngừng đổi mới và sáng tạo nên những cái mới'
+      title: 'Bền bỉ & chất lượng',
+      description: 'Chú trọng đến chất lượng sản phẩm để mang lại sự hài lòng cho khách hàng'
     },
     {
       image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174',
-      title: 'Công nghệ',
+      title: 'Thi Công',
       description: 'Áp dụng những công nghệ mới nhất để tạo trải nghiệm tốt cho khách hàng'
     }
   ];
